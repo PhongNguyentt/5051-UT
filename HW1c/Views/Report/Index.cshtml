@@ -1,0 +1,62 @@
+﻿@using HW1c.Models;
+@model ReportViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center">
+    <br />
+    <h1>Mike Koenig Report</h1>
+    <br />
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 text-center">
+            <h3>Number of users</h3>
+            <h4>@Model.NumberOfUsers</h4>
+        </div>
+        <div class="col jumbotron">
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">App Version</th>
+                            <th scope="col">Phone ID</th>
+                            <th scope="col">Evnet Type</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var item in Model.LogViewModel.LogList)
+                            {
+                                <tr>
+                                    <td>@Html.ActionLink("Click Me", "Read", new { id = item.ID },new { @class = "small" })</td>
+                                    <td>@item.RecordedDateTime.ToShortDateString()</td>
+                                    <td>@item.AppVersion</td>
+                                    <td>@item.PhoneID</td>
+                                    <td>@item.EventType</td>
+                                    <td>@item.Value</td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                @Html.ActionLink("Create", "Create", "Report", new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            <img src="~/Content/Img/PieChart1.png" class="PieChartBox" />
+        </div>
+    </div>
+</div>
+

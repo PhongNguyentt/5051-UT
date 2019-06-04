@@ -1,0 +1,66 @@
+﻿@model HW1c.Models.LogModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div class="row">
+    <div class="col-3 text-right">
+        @Html.DisplayNameFor(m => m.ID)
+    </div>
+    <div class="col">
+        @Html.DisplayFor(m => m.ID)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-right">
+        @Html.DisplayNameFor(m => m.EventType)
+    </div>
+    <div class="col">
+        @Html.DisplayFor(m => m.EventType)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-right">
+        @Html.DisplayNameFor(m => m.Value)
+    </div>
+    <div class="col">
+        @Html.DisplayFor(m => m.Value)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 text-right">
+        @Html.DisplayNameFor(m => m.PhoneID)
+    </div>
+    <div class="col">
+        @Html.DisplayFor(m => m.PhoneID)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-3 text-right">
+        @Html.DisplayNameFor(m => m.RecordedDateTime)
+    </div>
+    <div class="col">
+        @Html.DisplayFor(m => m.RecordedDateTime)
+    </div>
+</div>
+
+
+<br />
+<br />
+
+<h1> Delete this record?</h1>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ID)
+
+    @Html.ActionLink("Cancel", "Index", "Report",new { @class = "btn btn-primary" })
+    <input id="Submit" type="submit" value="Delete" class="btn btn-danger"/>
+}

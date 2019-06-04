@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            @Html.ActionLink("Mike's Site", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto nav-link">
+                    <li>@Html.ActionLink("Home", "Index", "Home",null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", null,new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Report", "Index", "Report", null, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("FAQ", "FAQ", "Home", null, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.ToShortTimeString()  - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
